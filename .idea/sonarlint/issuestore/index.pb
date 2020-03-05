@@ -1,0 +1,17 @@
+
+[
++icm-content/icm-content-persistence/pom.xml,c\2\c216d25a5ca9c4249e5bd474ead656af0ab4280b
+U
+%icm-content/icm-content-model/pom.xml,5\a\5aa83211a29ac2a3b38ca655f83d87ed20fb4030
+c
+3icm-content/icm-content-model/icm-content-model.iml,9\9\99169a3f17fed2d17273b267066f4b2079d51323
+X
+(icm-content/icm-content-rest-api/pom.xml,f\f\ff9cfad68e89dabcfb5f5e5da644a8b36b20dae0
+W
+'icm-content/icm-content-service/pom.xml,7\5\75370d567af7011bbf5354cab0afac9aef2bd877
+C
+icm-content/pom.xml,f\1\f1db837b4c4e84b71fdf538de1cf9b8f472c4cd3
+D
+icm-rest-app/pom.xml,7\a\7a50f8897d1cea055b324081aaaa9f7bfcb79dcd
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
