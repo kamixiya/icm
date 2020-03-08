@@ -16,6 +16,7 @@
     <modules>
         <module>icm-rest-app</module>
         <module>icm-content</module>
+        <module>icm-common</module>
     </modules>
 
     <properties>
@@ -30,6 +31,7 @@
         <jjwt.version>0.9.0</jjwt.version>
         <junit.jupiter.version>5.3.2</junit.jupiter.version>
         <jackson.version>2.9.7</jackson.version>
+        <jpa.spec.verison>3.2.3</jpa.spec.verison>
     </properties>
 
     <dependencyManagement>
@@ -70,6 +72,19 @@
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-hibernate5</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- JPA Specification Utility -->
+            <dependency>
+                <groupId>com.github.wenhao</groupId>
+                <artifactId>jpa-spec</artifactId>
+                <version>${jpa.spec.verison}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>2.0.1.Final</version>
             </dependency>
 
             <!-- Swagger API Document -->

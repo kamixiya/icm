@@ -1,0 +1,38 @@
+server:
+  port: 10086
+  address: 0.0.0.0
+  servlet:
+    context-path: /icm/
+
+spring:
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+
+  datasource:
+    name: MYDB
+    sql-script-encoding: utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://118.31.172.101:3306/icm?serverTimezone=Hongkong&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false&rewriteBatchedStatements=true&useSSL=false
+    username: root
+    password:  123456
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect    #默认使用innodb引擎
+      hibernate.format_sql: true
+      hibernate.max_fetch_depth: 1
+      hibernate.generate_statistics: true
+      hibernate.use_sql_comments: false

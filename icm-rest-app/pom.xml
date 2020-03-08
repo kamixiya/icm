@@ -46,25 +46,43 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>io.springfox</groupId>-->
-            <!--<artifactId>springfox-swagger2</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate5</artifactId>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>io.springfox</groupId>-->
-            <!--<artifactId>springfox-swagger-ui</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>io.springfox</groupId>-->
-            <!--<artifactId>springfox-bean-validators</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.kamixiya.icm</groupId>
             <artifactId>icm-content-rest-api</artifactId>
             <version>${icm.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-common-rest-api</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-common-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
