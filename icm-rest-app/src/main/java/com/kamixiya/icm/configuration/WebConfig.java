@@ -48,6 +48,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        //允许跨域访问的路径
+        //允许请求方法
+        //允许跨域访问的源
+        //是否发送cookie
+        //预检间隔时间
         registry.addMapping("/api/**")
                 .allowedMethods("POST", "PUT", "GET", "DELETE", "OPTIONS")
                 .allowedOrigins("*")
