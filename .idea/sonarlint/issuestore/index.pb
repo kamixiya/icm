@@ -21,9 +21,9 @@ h
 Micm-rest-app/src/main/java/com/kamixiya/icm/controller/WelcomeController.java,2\e\2ef4f65dea176965394b2e1c1c26b4a6d6b0807b
 x
 Hicm-rest-app/src/main/java/com/kamixiya/icm/configuration/WebConfig.java,5\4\5421f2fa65b72c373bb228f492f54da38c3c971a
-V
-&icm-content/icm-content-common/pom.xml,b\2\b2794361f644350f47d9b6e8cfce0d2bd48a7fbb
-á
-Wicm-content/icm-content-common/src/main/java/com/kamixiya/icm/model/CommonErrorDTO.java,5\b\5be3f122b50899b4bf398cddea198a0b27b3e606
 |
 Licm-rest-app/src/main/java/com/kamixiya/icm/configuration/SwaggerConfig.java,8\a\8a24646e15d22355598c820416ad29c78a0f6f44
+ö
+jicm-common/icm-common-rest-api/src/main/java/com/kamixiya/icm/controller/common/token/TokenController.java,9\f\9f1d11692cddac1478ca12ffebece26f896d1ebc
+ù
+micm-common/icm-common-persistence/src/main/java/com/kamixiya/icm/persistence/common/entity/security/User.java,1\c\1cd4c1d15c5eae261e4d8f1cf3819110b05b98aa

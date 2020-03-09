@@ -23,7 +23,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://118.31.172.101:3306/icm?serverTimezone=Hongkong&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false&rewriteBatchedStatements=true&useSSL=false
     username: root
-    password:  123456
+    password: 123456
 
   jpa:
     open-in-view: false

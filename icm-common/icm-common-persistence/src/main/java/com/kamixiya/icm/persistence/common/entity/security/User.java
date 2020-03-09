@@ -1,4 +1,4 @@
-package com.kamixiya.icm.persistence.common.security;
+package com.kamixiya.icm.persistence.common.entity.security;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +24,6 @@ public class User {
      */
     @Id
     @GeneratedValue(generator = "system_uuid")
-    @GenericGenerator(name = "system_uuid", strategy = "uuid.hex")
     private Long id;
 
     /**
