@@ -11,6 +11,7 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -24,7 +25,7 @@ import java.util.Date;
 @Setter
 @ToString
 @EqualsAndHashCode(of = {"id"}, callSuper = false)
-public class UserBaseDTO {
+public class UserBaseDTO implements Serializable {
 
     private static final String PASS_PLACE_HOLDER = "$pWd$(C%#*(78))!<>";
 
