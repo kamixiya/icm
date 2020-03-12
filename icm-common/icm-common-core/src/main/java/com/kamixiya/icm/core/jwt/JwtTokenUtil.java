@@ -1,4 +1,4 @@
-package com.kamixiya.icm.service.common.util;
+package com.kamixiya.icm.core.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

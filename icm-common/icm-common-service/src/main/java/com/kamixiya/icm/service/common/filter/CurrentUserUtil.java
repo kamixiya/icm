@@ -1,4 +1,4 @@
-package com.kamixiya.icm.service.common.util;
+package com.kamixiya.icm.service.common.filter;
 
 /**
  * 用户工具类

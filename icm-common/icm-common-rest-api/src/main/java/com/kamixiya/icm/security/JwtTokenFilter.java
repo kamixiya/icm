@@ -1,15 +1,15 @@
 package com.kamixiya.icm.security;
 
+import com.kamixiya.icm.core.jwt.JwtTokenUtil;
 import com.kamixiya.icm.model.user.UserDTO;
-import com.kamixiya.icm.persistence.common.entity.user.CurrentUser;
-import com.kamixiya.icm.service.common.security.UserService;
-import com.kamixiya.icm.service.common.util.CurrentUserUtil;
-import com.kamixiya.icm.service.common.util.JwtTokenUtil;
+import com.kamixiya.icm.service.common.service.security.UserService;
+import com.kamixiya.icm.service.common.filter.CurrentUserUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.util.StringUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -24,6 +24,8 @@ import java.io.IOException;
  * @author Zhu Jie
  * @date 2020/3/10
  */
+@Slf4j
+@Component
 public class JwtTokenFilter extends OncePerRequestFilter {
 
     private static final String TOKEN_HEADER = "Authorization";

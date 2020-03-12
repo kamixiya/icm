@@ -1,4 +1,4 @@
-package com.kamixiya.icm.controller.common.token;
+package com.kamixiya.icm.controller.token;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,4 +1,4 @@
-package com.kamixiya.icm.persistence.common.entity.user;
+package com.kamixiya.icm.security;
 
 import com.kamixiya.icm.model.user.UserDTO;
 import org.springframework.security.core.Authentication;

@@ -7,8 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="icm-common-core" />
         <module name="icm-common-model" />
-        <module name="icm-common-persistence" />
         <module name="icm-common-rest-api" />
         <module name="icm-common-service" />
         <module name="icm-content-model" />
@@ -29,8 +29,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="icm-common" options="-parameters" />
+      <module name="icm-common-core" options="-parameters" />
       <module name="icm-common-model" options="-parameters" />
-      <module name="icm-common-persistence" options="-parameters" />
       <module name="icm-common-rest-api" options="-parameters" />
       <module name="icm-common-service" options="-parameters" />
       <module name="icm-content-common" options="-parameters" />

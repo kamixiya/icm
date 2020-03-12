@@ -1,4 +1,4 @@
-package com.kamixiya.icm.service.common.security;
+package com.kamixiya.icm.service.common.service.security;
 
 import com.kamixiya.icm.model.common.PageDataDTO;
 import com.kamixiya.icm.model.common.SimpleDataDTO;

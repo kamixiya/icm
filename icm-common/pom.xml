@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>icm-common-model</module>
-        <module>icm-common-persistence</module>
+        <module>icm-common-core</module>
         <module>icm-common-rest-api</module>
         <module>icm-common-service</module>
     </modules>

@@ -54,7 +54,7 @@ public class SwaggerConfig{
 
     @Bean
     public Docket tokenApi() {
-        return this.commonApi("Token Management", API_BASE_PACKAGE + ".common.token", false);
+        return this.commonApi("Token Management", API_BASE_PACKAGE + ".token", false);
     }
 
     private Docket commonApi(String groupName, String basePackage, boolean requireToken) {

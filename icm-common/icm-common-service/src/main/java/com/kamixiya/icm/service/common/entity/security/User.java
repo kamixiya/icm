@@ -1,4 +1,4 @@
-package com.kamixiya.icm.persistence.common.entity.user;
+package com.kamixiya.icm.service.common.entity.security;
 
 import lombok.Getter;
 import lombok.Setter;
