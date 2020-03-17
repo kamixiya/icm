@@ -1,6 +1,6 @@
 package com.kamixiya.icm.security;
 
-import com.kamixiya.icm.model.user.UserDTO;
+import com.kamixiya.icm.model.security.user.UserDTO;
 import com.kamixiya.icm.service.common.exception.NoSuchDataException;
 import com.kamixiya.icm.service.common.service.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

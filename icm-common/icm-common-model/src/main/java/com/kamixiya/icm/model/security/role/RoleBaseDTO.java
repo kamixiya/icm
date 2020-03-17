@@ -1,4 +1,4 @@
-package com.kamixiya.icm.model.role;
+package com.kamixiya.icm.model.security.role;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;

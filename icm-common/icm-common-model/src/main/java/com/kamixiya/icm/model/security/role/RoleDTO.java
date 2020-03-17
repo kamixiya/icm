@@ -1,14 +1,11 @@
-package com.kamixiya.icm.model.role;
+package com.kamixiya.icm.model.security.role;
 
-import com.kamixiya.icm.model.user.UserBaseDTO;
+import com.kamixiya.icm.model.security.user.UserBaseDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.Date;
-import java.util.Set;
 
 /**
  * 角色详细信息

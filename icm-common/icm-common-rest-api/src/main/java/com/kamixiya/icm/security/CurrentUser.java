@@ -1,6 +1,6 @@
 package com.kamixiya.icm.security;
 
-import com.kamixiya.icm.model.user.UserDTO;
+import com.kamixiya.icm.model.security.user.UserDTO;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -145,6 +145,19 @@ public class CurrentUser implements UserDetails {
      */
     public String getUserId() {
         return userId;
+    }
+    /**
+     * 是否在某时间点后更改过密码
+     *
+     * @param checkpoint 时间点
+     * @return 更换过密码为true，否则false
+     */
+    public boolean isPasswordChanged(Date checkpoint) {
+        if (user.getLocalAccount()) {
+            return (user.getChangePasswordTime() != null && user.getChangePasswordTime().after(checkpoint));
+        } else {
+            return false;
+        }
     }
 
 }

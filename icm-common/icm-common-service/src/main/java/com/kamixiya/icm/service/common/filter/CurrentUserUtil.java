@@ -9,6 +9,7 @@ package com.kamixiya.icm.service.common.filter;
 public class CurrentUserUtil {
 
     private final ThreadLocal<String> REMOTE_ADDRESS_USER_ID = new ThreadLocal<>();
+    private final ThreadLocal<String> REMOTE_ADDRESS_WORKING_ORG_ID = new ThreadLocal<>();
 
     private static final CurrentUserUtil CURRENT_USER_UTIL = new CurrentUserUtil();
 
@@ -40,6 +41,15 @@ public class CurrentUserUtil {
     public void setClientUserId(String clientUserId) {
         CLIENT_USER_ID.remove();
         CLIENT_USER_ID.set(clientUserId);
+    }
+
+    public String getWorkingOrganizationId() {
+        return REMOTE_ADDRESS_WORKING_ORG_ID.get();
+    }
+
+    public void setWorkingOrganizationId(String workingOrganizationId) {
+        REMOTE_ADDRESS_WORKING_ORG_ID.remove();
+        REMOTE_ADDRESS_WORKING_ORG_ID.set(workingOrganizationId);
     }
 
 }

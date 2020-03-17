@@ -1,9 +1,13 @@
 package com.kamixiya.icm.service.common.entity.security;
 
+import com.kamixiya.icm.service.common.entity.AbstractBaseEntity;
+import com.kamixiya.icm.service.common.entity.organization.Employee;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -16,7 +20,7 @@ import javax.persistence.*;
 @Table(name = "zj_sys_user")
 @Getter
 @Setter
-public class User {
+public class User extends AbstractBaseEntity {
 
     /**
      * 主键，新增时应当为null，受限javascript的long型数据精度问题，DTO中需转换为字符串类型
@@ -96,6 +100,16 @@ public class User {
     @Column(name = "remark", length = 500)
     private String remark;
 
+    /**
+     * 所属的角色
+     */
+    @ManyToMany
+    @JoinTable(name = "zj_sys_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @OrderBy("name asc")
+    private Set<Role> roles = new LinkedHashSet<>();
+
+    @OneToOne(mappedBy = "user")
+    private Employee employee;
 
     @Override
     public int hashCode() {

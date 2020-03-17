@@ -1,4 +1,4 @@
-package com.kamixiya.icm.model.user;
+package com.kamixiya.icm.model.security.user;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

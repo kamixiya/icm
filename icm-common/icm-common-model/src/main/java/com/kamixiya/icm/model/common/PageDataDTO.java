@@ -1,6 +1,10 @@
 package com.kamixiya.icm.model.common;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
@@ -11,6 +15,10 @@ import java.util.Collection;
  * @author Zhu Jie
  * @date 2020/3/11
  */
+@ApiModel(description = "通用分页数据, 根据调用接口返回不同的数据类型")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageDataDTO<T> {
 
     @ApiModelProperty(position = 1, value = "当前页码，从0开始计数", required = true)

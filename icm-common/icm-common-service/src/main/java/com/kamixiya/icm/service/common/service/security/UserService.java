@@ -2,10 +2,10 @@ package com.kamixiya.icm.service.common.service.security;
 
 import com.kamixiya.icm.model.common.PageDataDTO;
 import com.kamixiya.icm.model.common.SimpleDataDTO;
-import com.kamixiya.icm.model.role.RoleDTO;
-import com.kamixiya.icm.model.user.PasswordInfoDTO;
-import com.kamixiya.icm.model.user.UserDTO;
-import com.kamixiya.icm.model.user.UserEditInfoDTO;
+import com.kamixiya.icm.model.security.role.RoleDTO;
+import com.kamixiya.icm.model.security.user.PasswordInfoDTO;
+import com.kamixiya.icm.model.security.user.UserDTO;
+import com.kamixiya.icm.model.security.user.UserEditInfoDTO;
 
 import java.util.Collection;
 import java.util.List;

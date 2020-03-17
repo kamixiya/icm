@@ -1,4 +1,4 @@
-package com.kamixiya.icm.model.user;
+package com.kamixiya.icm.model.security.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

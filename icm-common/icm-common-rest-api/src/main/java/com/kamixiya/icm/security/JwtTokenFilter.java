@@ -1,7 +1,7 @@
 package com.kamixiya.icm.security;
 
 import com.kamixiya.icm.core.jwt.JwtTokenUtil;
-import com.kamixiya.icm.model.user.UserDTO;
+import com.kamixiya.icm.model.security.user.UserDTO;
 import com.kamixiya.icm.service.common.service.security.UserService;
 import com.kamixiya.icm.service.common.filter.CurrentUserUtil;
 import lombok.extern.slf4j.Slf4j;

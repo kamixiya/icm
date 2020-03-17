@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -66,9 +67,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/token").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/ia/token").permitAll()
-                .antMatchers((HttpMethod) null, "/api/crypt/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/files/*/content").permitAll()
                 .anyRequest().authenticated().and()
                 .headers().cacheControl();
     }
@@ -82,7 +80,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**",
-                "/h2-console/**",
                 "/static/**",
                 "/actuator/**",
                 "/*");
