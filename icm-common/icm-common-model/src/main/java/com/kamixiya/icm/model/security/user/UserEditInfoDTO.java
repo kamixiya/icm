@@ -23,4 +23,7 @@ public class UserEditInfoDTO extends UserBaseDTO{
     @ApiModelProperty(position = 200, value = "该用户拥有的所有角色ID")
     private Set<String> roleIds;
 
+    @ApiModelProperty(position = 220, value = "拥有该用户的员工ID")
+    private String employeeId;
+
 }

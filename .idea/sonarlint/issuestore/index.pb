@@ -193,3 +193,11 @@ S
 #icm-common/icm-common-model/pom.xml,e\7\e77785c4e5dd5be03264fcb01697a71959dbef67
 è
 _icm-common/icm-common-model/src/main/java/com/kamixiya/icm/model/security/user/UserBaseDTO.java,8\1\81184be4d1a1cc63dc9a9689fb40b9465eb87915
+è
+_icm-common/icm-common-model/src/main/java/com/kamixiya/icm/model/security/role/RoleBaseDTO.java,9\e\9ed18cd136bf0cc45e981125463f764bc17763c9
+ã
+[icm-common/icm-common-model/src/main/java/com/kamixiya/icm/model/security/role/RoleDTO.java,6\3\63700c49a5ccdddfb65f318910e600423ed41d8e
+ì
+cicm-common/icm-common-model/src/main/java/com/kamixiya/icm/model/security/user/PasswordInfoDTO.java,5\d\5d82d46135a8376218c533a68aa8e9a734d096c3
+ì
+cicm-common/icm-common-model/src/main/java/com/kamixiya/icm/model/security/user/UserEditInfoDTO.java,1\7\178403a060c73e3cbf88fd03ca594de2316a66a0
