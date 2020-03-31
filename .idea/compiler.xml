@@ -40,6 +40,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com-content-service" target="1.5" />
+      <module name="icm-common-persistence" target="1.8" />
       <module name="icm-content-common" target="1.8" />
       <module name="icm-content-model" target="1.8" />
       <module name="icm-content-persistence" target="1.8" />

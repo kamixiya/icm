@@ -23,13 +23,6 @@ import javax.persistence.*;
 public class User extends AbstractBaseEntity {
 
     /**
-     * 主键，新增时应当为null，受限javascript的long型数据精度问题，DTO中需转换为字符串类型
-     */
-    @Id
-    @GeneratedValue(generator = "system_uuid")
-    private Long id;
-
-    /**
      * 登录账号, 输入时，要求检查唯一性
      */
     @Column(name = "account", length = 20, unique = true, nullable = false)

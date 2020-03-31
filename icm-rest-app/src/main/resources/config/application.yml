@@ -19,11 +19,16 @@ spring:
 
   datasource:
     name: MYDB
+#    data: classpath:/sql/data-mysql.sql
     sql-script-encoding: utf-8
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://118.31.172.101:3306/icm?serverTimezone=Hongkong&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false&rewriteBatchedStatements=true&useSSL=false
     username: root
     password: 123456
+#    dbcp2:
+#      validation-query: select 1
+#      test-on-borrow: true
+  #    initialization-mode: always
 
   jpa:
     open-in-view: false
