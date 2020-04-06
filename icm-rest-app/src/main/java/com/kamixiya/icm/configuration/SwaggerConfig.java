@@ -58,8 +58,8 @@ public class SwaggerConfig{
     }
 
     @Bean
-    public Docket testApi() {
-        return this.commonApi("Test Management", API_BASE_PACKAGE + ".test", true);
+    public Docket authorityApi() {
+        return this.commonApi("Authority Management", API_BASE_PACKAGE + ".authority", true);
     }
 
     private Docket commonApi(String groupName, String basePackage, boolean requireToken) {

@@ -58,10 +58,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
 
-        Long start;
-        Long end;
-        start = System.currentTimeMillis();
-
         String authHeader = request.getHeader(TOKEN_HEADER);
         CurrentUser userDetails = null;
 
@@ -84,7 +80,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
             }
         }
-        end = System.currentTimeMillis();
         chain.doFilter(request, response);
     }
 }
