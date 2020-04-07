@@ -1,13 +1,19 @@
 package com.kamixiya.icm.configuration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+import com.kamixiya.icm.core.json.ObjectMapperFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -49,5 +55,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public PasswordEncoder passwordEncoderBean(){
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    @Primary
+    public ObjectMapper objectMapper() {
+        // 创建缺省的ObjectMapper，提供动态过滤功能
+        return ObjectMapperFactory.getDefaultObjectMapper().registerModule(new Hibernate5Module()).setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
     }
 }

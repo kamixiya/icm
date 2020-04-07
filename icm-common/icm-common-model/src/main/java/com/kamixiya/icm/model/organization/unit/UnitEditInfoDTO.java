@@ -21,6 +21,4 @@ public class UnitEditInfoDTO extends UnitBaseDTO {
     @ApiModelProperty(position = 420, value = "上级单位", required = true)
     private String parentId;
 
-    @ApiModelProperty(position = 430, value = "地区id")
-    private String districtId;
 }
