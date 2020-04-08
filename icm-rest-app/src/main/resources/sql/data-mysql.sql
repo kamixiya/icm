@@ -29,6 +29,8 @@ INSERT INTO zj_sys_authority (`id`, `created_by`, `created_time`, `filter_path`,
 INSERT INTO zj_sys_authority (`id`, `created_by`, `created_time`, `filter_path`, `last_modified_by`, `last_modified_time`, `code`, `name`, `type`) SELECT IFNULL(MAX(id),0) + 1, '1', SYSDATE(), '', '1', SYSDATE(), 'EMPLOYEE_RETRIEVE', '查询员工', '员工管理' FROM zj_sys_authority;
 INSERT INTO zj_sys_authority (`id`, `created_by`, `created_time`, `filter_path`, `last_modified_by`, `last_modified_time`, `code`, `name`, `type`) SELECT IFNULL(MAX(id),0) + 1, '1', SYSDATE(), '', '1', SYSDATE(), 'EMPLOYEE_UPDATE', '修改员工', '员工管理' FROM zj_sys_authority;
 INSERT INTO zj_sys_authority (`id`, `created_by`, `created_time`, `filter_path`, `last_modified_by`, `last_modified_time`, `code`, `name`, `type`) SELECT IFNULL(MAX(id),0) + 1, '1', SYSDATE(), '', '1', SYSDATE(), 'EMPLOYEE_DELETE', '删除员工', '员工管理' FROM zj_sys_authority;
+INSERT INTO zj_sys_authority (`id`, `created_by`, `created_time`, `filter_path`, `last_modified_by`, `last_modified_time`, `code`, `name`, `type`) SELECT IFNULL(MAX(id),0) + 1, '1', SYSDATE(), '', '1', SYSDATE(), 'ORGANIZATION_RETRIEVE', '查询组织机构', '组织机构管理' FROM zj_sys_authority;
+INSERT INTO zj_sys_authority (`id`, `created_by`, `created_time`, `filter_path`, `last_modified_by`, `last_modified_time`, `code`, `name`, `type`) SELECT IFNULL(MAX(id),0) + 1, '1', SYSDATE(), '', '1', SYSDATE(), 'ORGANIZATION_UPDATE', '修改组织机构', '组织机构管理' FROM zj_sys_authority;
 
 -- 角色
 INSERT INTO zj_sys_role(id, NAME, remark, created_by, created_time, last_modified_by, last_modified_time)
