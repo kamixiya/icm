@@ -5,6 +5,8 @@ server:
     context-path: /icm/
 
 spring:
+  profiles:
+    active: development-local
   thymeleaf:
     mode: HTML
     encoding: UTF-8
@@ -16,16 +18,6 @@ spring:
     view:
       prefix: classpath:/templates/
       suffix: .html
-
-  datasource:
-    name: MYDB
-#    data: classpath:/sql/data-mysql.sql
-    sql-script-encoding: utf-8
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://118.31.172.101:3306/icm?serverTimezone=Hongkong&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false&rewriteBatchedStatements=true&useSSL=false
-    username: root
-    password: 123456
-#    initialization-mode: always
 
   jpa:
     open-in-view: false
@@ -53,3 +45,32 @@ zj:
     preview:
       # 预览时转换后的文件类型
       file-type: .pdf
+    snowflake:
+      idc: 1
+      machine: 1
+
+---
+spring:
+  profiles: development-aliyun
+  datasource:
+    name: MYDB
+    #    data: classpath:/sql/data-mysql.sql
+    sql-script-encoding: utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://118.31.172.101:3306/icm?serverTimezone=Hongkong&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false&rewriteBatchedStatements=true&useSSL=false
+    username: root
+    password: 123456
+  #    initialization-mode: always
+
+---
+spring:
+  profiles: development-local
+  datasource:
+    name: MYDB
+    #    data: classpath:/sql/data-mysql.sql
+    sql-script-encoding: utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/icm?serverTimezone=Hongkong&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false&rewriteBatchedStatements=true&useSSL=false
+    username: root
+    password: root
+  #    initialization-mode: always

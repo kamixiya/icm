@@ -16,7 +16,7 @@ import java.util.Map;
  * @date 2020/3/14
  */
 @Component
-public class SpringUtil  implements ApplicationContextAware {
+public class SpringUtil implements ApplicationContextAware {
 
     private static ApplicationContext context = null;
 
@@ -88,6 +88,8 @@ public class SpringUtil  implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-
+        synchronized (this) {
+            SpringUtil.context = applicationContext;
+        }
     }
 }

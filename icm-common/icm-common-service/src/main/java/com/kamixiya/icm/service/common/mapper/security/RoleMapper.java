@@ -90,9 +90,7 @@ public interface RoleMapper {
      * @return 转换后的DTO
      */
     @IterableMapping(qualifiedBy = Simple.class)
-    default Set<UserDTO> toSetUserDto(Set<User> users) {
-        return null;
-    }
+    Set<UserDTO> toSetUserDto(Set<User> users);
 
 
 }

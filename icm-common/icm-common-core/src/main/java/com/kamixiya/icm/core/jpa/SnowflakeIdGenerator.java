@@ -42,6 +42,7 @@ public class SnowflakeIdGenerator implements IdentifierGenerator, Configurable {
             return snowflake.nextId();
         }
     }
+    @Override
     public void configure(Type type, Properties params, ServiceRegistry serviceRegistry) throws MappingException {
         this.entityName = params.getProperty("entity_name");
         if (this.entityName == null) {
