@@ -48,6 +48,7 @@
             <version>4.3.1</version>
             <scope>compile</scope>
         </dependency>
+        <!--aspose-->
         <dependency>
             <groupId>com.aspose</groupId>
             <artifactId>aspose-words</artifactId>
@@ -55,13 +56,21 @@
         </dependency>
         <dependency>
             <groupId>com.aspose</groupId>
+            <artifactId>aspose-slides</artifactId>
+            <version>18.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aspose</groupId>
             <artifactId>aspose-cells</artifactId>
             <version>18.9</version>
         </dependency>
         <dependency>
-            <groupId>com.aspose</groupId>
-            <artifactId>aspose-slides</artifactId>
-            <version>18.7</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
         </dependency>
     </dependencies>
 </project>

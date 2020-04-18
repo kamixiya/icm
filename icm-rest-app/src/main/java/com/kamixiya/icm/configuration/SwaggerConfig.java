@@ -67,6 +67,11 @@ public class SwaggerConfig{
         return this.commonApi("Organization Management", API_BASE_PACKAGE + ".organization", true);
     }
 
+    @Bean
+    public Docket budgetApi() {
+        return this.commonApi("Budget Management", API_BASE_PACKAGE + ".content.budget", true);
+    }
+
     private Docket commonApi(String groupName, String basePackage, boolean requireToken) {
         return this.buildApiCommonPart(
                 (new Docket(DocumentationType.SWAGGER_2))

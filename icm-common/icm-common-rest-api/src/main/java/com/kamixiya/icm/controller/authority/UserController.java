@@ -1,7 +1,9 @@
 package com.kamixiya.icm.controller.authority;
 
+import com.kamixiya.icm.core.json.Json;
 import com.kamixiya.icm.model.common.PageDataDTO;
 import com.kamixiya.icm.model.common.SimpleDataDTO;
+import com.kamixiya.icm.model.organization.organization.OrganizationDTO;
 import com.kamixiya.icm.model.security.role.RoleDTO;
 import com.kamixiya.icm.model.security.user.PasswordInfoDTO;
 import com.kamixiya.icm.model.security.user.UserDTO;
@@ -43,6 +45,7 @@ public class UserController {
 
     @ApiOperation(value = "根据ID查找用户，用户包含基本资料，关联的员工资料，关联的工作岗位以及当前的用户设置")
     @PreAuthorize("hasAnyAuthority('USER_RETRIEVE')")
+    @Json(type = OrganizationDTO.class, filter = "parent")
     @GetMapping(value = "/{id}")
     public UserDTO findById(
             @ApiParam(value = "用户ID", required = true) @PathVariable(name = "id") String id) {

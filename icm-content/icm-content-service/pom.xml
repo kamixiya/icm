@@ -10,6 +10,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>icm-content-service</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-content-model</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-content-persistence</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

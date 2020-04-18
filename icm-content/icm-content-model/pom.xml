@@ -28,8 +28,12 @@
         <dependency>
             <groupId>com.kamixiya.icm</groupId>
             <artifactId>icm-common-model</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${icm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-content-persistence</artifactId>
+            <version>${icm.version}</version>
         </dependency>
     </dependencies>
 

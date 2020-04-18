@@ -37,7 +37,7 @@ zj:
       # fileType上传时拦截的文件类型，
       file-filter-type: .jsp.asp.exe
       # flag 上传文件时临时保存的路径
-      temp-path: ${java.io.tmpdir}${file.separator}files${file.separator}
+      temp-path: ${java.io.tmpdir}${file.separator}icm_files${file.separator}
       #  filePath 上传时的文件保存路径
       file-path: ${user.dir}${file.separator}files${file.separator}
       # 预览文件临时存放路径

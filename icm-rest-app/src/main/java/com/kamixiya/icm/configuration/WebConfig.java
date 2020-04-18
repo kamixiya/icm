@@ -6,6 +6,8 @@ import com.kamixiya.icm.core.json.ObjectMapperFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 
 /**
@@ -50,6 +53,16 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("*")
                 .allowCredentials(false)
                 .maxAge(3600);
+    }
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        // 替换ObjectMapper
+        converters.forEach(c -> {
+            if (c instanceof MappingJackson2HttpMessageConverter) {
+                ((MappingJackson2HttpMessageConverter) c).setObjectMapper(objectMapper());
+            }
+        });
     }
 
     @Bean

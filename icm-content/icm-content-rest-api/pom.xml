@@ -10,6 +10,39 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>icm-content-rest-api</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-common-core</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-content-model</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-content-service</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

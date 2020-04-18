@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>icm-content-persistence</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.kamixiya.icm</groupId>
+            <artifactId>icm-common-service</artifactId>
+            <version>${icm.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

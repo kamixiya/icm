@@ -177,7 +177,6 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>3.7</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -187,8 +186,21 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        <!--<dependency>-->
+            <!--<groupId>it.semeru</groupId>-->
+            <!--<artifactId>auto-bean-info</artifactId>-->
+            <!--<version>0.0.1</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>http://repository.aspose.com/repo/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -199,11 +211,11 @@
                     <showWarnings>true</showWarnings>
                     <compilerArgument>-Adebug</compilerArgument>
                     <annotationProcessorPaths>
-                        <path>
-                            <groupId>it.semeru</groupId>
-                            <artifactId>auto-bean-info</artifactId>
-                            <version>0.0.1</version>
-                        </path>
+                        <!--<path>-->
+                            <!--<groupId>it.semeru</groupId>-->
+                            <!--<artifactId>auto-bean-info</artifactId>-->
+                            <!--<version>0.0.1</version>-->
+                        <!--</path>-->
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
