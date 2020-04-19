@@ -17,7 +17,7 @@ import java.util.List;
  * GeneralProjectMapper
  *
  * @author Zhu Jie
- * @date 2020/4/16
+ * @date 2020/4/19
  */
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, unmappedSourcePolicy = ReportingPolicy.IGNORE, imports = {Arrays.class})
 public interface GeneralProjectMapper {

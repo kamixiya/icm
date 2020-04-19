@@ -1,0 +1,22 @@
+package com.kamixiya.icm.model.content.purchase;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * PurchaseReportEditInfoDTO
+ *
+ * @author Zhu Jie
+ * @date 2020/4/19
+ */
+@ApiModel(description = "采购申请编辑信息")
+@Getter
+@Setter
+@ToString
+public class PurchaseReportEditInfoDTO extends PurchaseReportCreateInfoDTO {
+    @ApiModelProperty(position = 100, value = "ID，新建时无需输入", required = true)
+    private String id;
+}

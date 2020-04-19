@@ -1,9 +1,11 @@
 package com.kamixiya.icm.model.content.revenue.opening;
 
 import com.kamixiya.icm.model.content.base.PageQueryOptionDTO;
+import com.kamixiya.icm.persistence.content.entity.base.StateType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.Setter;
 
 /**
@@ -12,12 +14,16 @@ import lombok.Setter;
  * @author Zhu Jie
  * @date 2020/4/8
  */
+@Getter
 @Setter
 @AllArgsConstructor
 @ApiModel(description = "银行账户开户申请条件")
 public class BankAccountOpeningQueryOptionDTO {
     @ApiModelProperty(position = 100, value = "分页查询参数")
     private PageQueryOptionDTO pageQueryOption;
+
+    @ApiModelProperty(position = 110, value = "审批状态")
+    private StateType stateType;
 
     @ApiModelProperty(position = 300, value = "申请单位")
     private String unitName;

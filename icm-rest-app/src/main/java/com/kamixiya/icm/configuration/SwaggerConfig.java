@@ -72,6 +72,26 @@ public class SwaggerConfig{
         return this.commonApi("Budget Management", API_BASE_PACKAGE + ".content.budget", true);
     }
 
+    @Bean
+    public Docket purchaseApi() {
+        return this.commonApi("Purchase Management", API_BASE_PACKAGE + ".content.purchase", true);
+    }
+
+    @Bean
+    public Docket contractApi() {
+        return this.commonApi("Contract Management", API_BASE_PACKAGE + ".content.contract", true);
+    }
+
+    @Bean
+    public Docket revenueApi() {
+        return this.commonApi("Revenue Management", API_BASE_PACKAGE + ".content.revenue", true);
+    }
+
+    @Bean
+    public Docket paymentApi() {
+        return this.commonApi("Payment Management", API_BASE_PACKAGE + ".content.payment", true);
+    }
+
     private Docket commonApi(String groupName, String basePackage, boolean requireToken) {
         return this.buildApiCommonPart(
                 (new Docket(DocumentationType.SWAGGER_2))
