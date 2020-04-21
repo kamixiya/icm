@@ -123,8 +123,7 @@ public class ContractConclusionServiceImpl implements ContractConclusionService 
     public List<ContractConclusionDTO> findAll(ContractConclusionQueryOptionDTO contractConclusionQueryOptionDTO) {
         List<ContractConclusion> conclusions = this.conclusionRepository.findAll(Specifications.<ContractConclusion>and()
                 .eq("state", StateType.DONE)
-                .eq("department.id", contractConclusionQueryOptionDTO.getDepartmentId())
-                .eq("contract.id", null).build());
+                .eq("department.id", contractConclusionQueryOptionDTO.getDepartmentId()).build());
         if (StringUtils.isNotBlank(contractConclusionQueryOptionDTO.getConclusionId())) {
             conclusions.add(getOne(contractConclusionQueryOptionDTO.getConclusionId()));
         }
@@ -435,7 +434,11 @@ public class ContractConclusionServiceImpl implements ContractConclusionService 
             if (mapAmount != null) {
                 indexAmount = indexAmount.add(new BigDecimal(mapAmount.toString()));
             }
-            this.purchaseReportIndexRepository.updateAmount(0.0, indexAmount.doubleValue(), reportIndex.getId());
+            if(conclusion.getState().equals(StateType.DONE)){
+                this.purchaseReportIndexRepository.updateAmount(-mapAmount, mapAmount, reportIndex.getId());
+            }else {
+                this.purchaseReportIndexRepository.updateAmount(0.0, indexAmount.doubleValue(), reportIndex.getId());
+            }
             //构建合同订立指标信息对象
             ContractConclusionIndex index = this.buildContractConclusionIndex(conclusion, reportIndex.getIndex(), indexDTO, showOrder++);
             list.add(index);
@@ -470,8 +473,12 @@ public class ContractConclusionServiceImpl implements ContractConclusionService 
             if (mapAmount != null) {
                 amount = amount.add(new BigDecimal(mapAmount.toString()));
             }
-            this.indexLibraryRepository.updateAmount(0.0, 0.0, 0.0, amount.doubleValue(), 0.0, indexLibrary.getId());
-            this.indexLibraryRepository.flush();
+            if(conclusion.getState().equals(StateType.DONE)){
+                this.indexLibraryRepository.updateAmount(0.0, 0.0, -mapAmount, mapAmount, 0.0, indexLibrary.getId());
+            }else {
+                this.indexLibraryRepository.updateAmount(0.0, 0.0, 0.0, amount.doubleValue(), 0.0, indexLibrary.getId());
+                this.indexLibraryRepository.flush();
+            }
             //构建合同订立指标信息对象
             ContractConclusionIndex index = this.buildContractConclusionIndex(conclusion, indexLibrary, indexDTO, showOrder++);
             list.add(index);

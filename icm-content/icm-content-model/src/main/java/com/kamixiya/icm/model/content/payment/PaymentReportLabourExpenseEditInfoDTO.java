@@ -19,5 +19,5 @@ import javax.validation.constraints.NotBlank;
 public class PaymentReportLabourExpenseEditInfoDTO extends PaymentReportLabourExpenseBaseDTO {
     @ApiModelProperty(position = 700, value = "支出类型ID", required = true)
     @NotBlank
-    private String expenseTypeDetailId;
+    private String expenseTypeDetail;
 }

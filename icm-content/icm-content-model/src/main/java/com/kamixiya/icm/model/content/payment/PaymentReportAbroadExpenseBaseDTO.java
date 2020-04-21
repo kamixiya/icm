@@ -31,6 +31,10 @@ class PaymentReportAbroadExpenseBaseDTO {
     @NotNull
     private Date endDate;
 
+    @ApiModelProperty(position = 145, value = "结束时间", required = true)
+    @NotNull
+    private String currency;
+
     @ApiModelProperty(position = 150, value = "天数", required = true)
     @NotNull
     private Integer duration;

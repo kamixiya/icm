@@ -1306,14 +1306,14 @@ public class PaymentReportServiceImpl implements PaymentReportService {
      */
     private void saveContractRelation(PaymentReport report, PaymentReportCreateInfoDTO createInfo, Map<Long, Double> map) {
         if (null != createInfo.getContracts() && !createInfo.getContracts().isEmpty()) {
-            List<Long> paymentIds = createInfo.getContracts().stream().map(PaymentReportContractEditInfoDTO::getContractPaymentId).map(Long::parseLong).collect(Collectors.toList());
+            List<Long> paymentIds = createInfo.getContracts().stream().map(contract -> contract.getContractPaymentId()).map(Long::parseLong).collect(Collectors.toList());
             List<ContractConclusionPayment> contractPayments = this.contractPaymentRepository.findAllById(paymentIds);
             Map<Long, ContractConclusionPayment> paymentMap = contractPayments.stream().collect(Collectors.toMap(ContractConclusionPayment::getId, payment -> payment));
             boolean isPayOne = false;
             int showOrder = 1;
             Double indexTotal = 0.0;
             if (!CollectionUtils.isEmpty(createInfo.getContractIndexes())) {
-                indexTotal = createInfo.getContractIndexes().stream().map(PaymentReportIndexEditInfoDTO::getAmount).reduce(0.0, Double::sum);
+                indexTotal = createInfo.getContractIndexes().stream().map(index -> index.getAmount()).reduce(0.0, Double::sum);
             }
             for (PaymentReportContractEditInfoDTO contractDTO : createInfo.getContracts()) {
                 PaymentReportContract paymentReportContract = this.reportContractMapper.toEntity(contractDTO);
@@ -1369,6 +1369,7 @@ public class PaymentReportServiceImpl implements PaymentReportService {
             int showOrder = 1;
             for (PaymentReportGeneralDetailEditInfoDTO paymentDetailDTO : createInfo.getPaymentDetails()) {
                 PaymentReportDetail paymentReportDetail = this.reportDetailMapper.toEntity(paymentDetailDTO);
+                paymentReportDetail.setExpenseType(paymentDetailDTO.getExpenseType());
                 paymentReportDetail.setPaymentReport(report);
                 paymentReportDetail.setShowOrder(showOrder++);
                 this.reportDetailRepository.save(paymentReportDetail);

@@ -47,7 +47,7 @@ public class PaymentReportController {
             @ApiParam(value = "页号，从0开始", required = true, defaultValue = "0") @RequestParam("page") @Min(0) int page,
             @ApiParam(value = "每页纪录条数", required = true, defaultValue = "20") @RequestParam("size") @Min(1) @Max(100) int size,
             @ApiParam(value = "排序字段, 例如：字段1,asc,字段2,desc") @RequestParam(value = "sort", required = false, defaultValue = "id,desc") String sort,
-            @ApiParam(value = "状态类型,查询类型", required = true) @RequestParam(value = "stateType", required = false, defaultValue = "ALL") StateType stateType,
+            @ApiParam(value = "状态类型,查询类型", required = true) @RequestParam(value = "stateType", required = false, defaultValue = "UNDONE") StateType stateType,
             @ApiParam(value = "申请单位ID") @RequestParam(value = "unitId", required = false) String unitId,
             @ApiParam(value = "申请部门ID") @RequestParam(value = "departmentId", required = false) String departmentId,
             @ApiParam(value = "申请人姓名，支持模糊查询") @RequestParam(value = "declarerName", required = false) String declarerName,

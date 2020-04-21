@@ -25,9 +25,6 @@ public class BankAccountOpeningDTO extends BankAccountOpeningBaseDTO {
     @ApiModelProperty(position = 100, value = "ID，新建时无需输入")
     private String id;
 
-    @ApiModelProperty(position = 120, value = "流程实例ID")
-    private String instanceId;
-
     @ApiModelProperty(position = 130, value = "申请单位", required = true)
     private OrganizationBaseDTO unit;
 

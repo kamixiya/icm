@@ -23,7 +23,7 @@ public class PurchaseReportDetailDTO extends PurchaseReportDetailBaseDTO {
     private String id;
 
     @ApiModelProperty(position = 510, value = "内容名称")
-    private String purchaseCategory;
+    private String purchaseDetail;
 
 
     @ApiModelProperty(position = 530, value = "指标信息")

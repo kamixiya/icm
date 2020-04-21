@@ -49,7 +49,7 @@ public class PurchaseReportController {
             @ApiParam(value = "页号，从0开始", required = true, defaultValue = "0") @RequestParam("page") @Min(0) int page,
             @ApiParam(value = "每页纪录条数", required = true, defaultValue = "20") @RequestParam("size") @Min(1) @Max(100) int size,
             @ApiParam(value = "排序字段, 例如：字段1,asc,字段2,desc") @RequestParam(value = "sort", required = false, defaultValue = "id,desc") String sort,
-            @ApiParam(value = "状态类型,查询类型", required = true) @RequestParam(value = "stateType", required = false, defaultValue = "ALL") StateType stateType,
+            @ApiParam(value = "状态类型,查询类型", required = true) @RequestParam(value = "stateType", required = false, defaultValue = "UNDONE") StateType stateType,
             @ApiParam(value = "申请部门ID") @RequestParam(value = "departmentId", required = false) String departmentId,
             @ApiParam(value = "申请人姓名，支持模糊查询") @RequestParam(value = "declarerName", required = false) String declarerName,
             @ApiParam(value = "业务标题,支持模糊查询") @RequestParam(value = "title", required = false) String title,
@@ -59,10 +59,10 @@ public class PurchaseReportController {
             @ApiParam(value = "采购单号") @RequestParam(value = "code", required = false) String code,
             @ApiParam(value = "最小采购金额") @RequestParam(value = "beginAmount", required = false) Double beginAmount,
             @ApiParam(value = "最大采购金额") @RequestParam(value = "endAmount", required = false) Double endAmount,
-            @ApiParam(value = "品目名称id") @RequestParam(value = "categoryId", required = false) String categoryId
+            @ApiParam(value = "品目名称id") @RequestParam(value = "detailId", required = false) String detailId
 
     ) {
-        return purchaseReportService.findOnePage(page, size, sort, stateType, departmentId, declarerName, title, unitId, beginDate, endDate, beginAmount, endAmount, code, categoryId);
+        return purchaseReportService.findOnePage(page, size, sort, stateType, departmentId, declarerName, title, unitId, beginDate, endDate, beginAmount, endAmount, code, detailId);
     }
 
     @ApiOperation(value = "查询当前操作可获取的采购申请")

@@ -106,7 +106,7 @@ public class PurchaseReportServiceImpl implements PurchaseReportService {
                         .eq(StringUtils.isNotBlank(departmentId), "department.id", departmentId)
                         .predicate(((root, query, cb) -> {
                             Join<PurchaseReport, PurchaseReportIndex> indexJoin = root.join("indexes", JoinType.LEFT);
-                            return cb.and(cb.greaterThan(cb.diff(indexJoin.get("amount"), indexJoin.get("occupationAmount")), 0));
+                            return cb.and(cb.greaterThan(indexJoin.get("availableAmount"), 0));
                         }))
                         .build());
         Set<PurchaseReport> reports = new LinkedHashSet<>(list);
@@ -236,8 +236,8 @@ public class PurchaseReportServiceImpl implements PurchaseReportService {
                     Specifications.<SystemFile>and().in("id", oldFileIds.toArray())
                             .notIn(!newFileIds.isEmpty(), "id", newFileIds.toArray()).build());
         }
-
         purchaseReportMapper.updateEntity(editInfoDTO, entity);
+        entity.setState(StateType.DONE);
         entity = purchaseReportRepository.save(entity);
         //保存关联
         entity = saveRelation(entity, editInfoDTO);
@@ -245,7 +245,6 @@ public class PurchaseReportServiceImpl implements PurchaseReportService {
         if (!removeFiles.isEmpty()) {
             systemFileRepository.deleteAll(removeFiles);
         }
-        entity.setState(StateType.DONE);
         entity = purchaseReportRepository.save(entity);
 
         return purchaseReportMapper.toDTO(entity);
@@ -378,6 +377,7 @@ public class PurchaseReportServiceImpl implements PurchaseReportService {
                 purchaseReportDetail = purchaseReportDetailRepository.save(purchaseReportDetail);
                 int detailIndexShowOrder = 1;
                 List<PurchaseReportDetailIndex> reportDetailIndices = new ArrayList<>();
+                List<PurchaseReportIndex> purchaseReportIndices = new ArrayList<>();
                 for (PurchaseReportIndexEditInfoDTO index : dto.getIndexes()) {
                     PurchaseReportDetailIndex reportDetailIndex = purchaseReportDetailIndexMapper.toEntity(index);
                     //修改指标库数据
@@ -385,54 +385,40 @@ public class PurchaseReportServiceImpl implements PurchaseReportService {
                     //更新品目指标可用余额、占用
                     indexLibraryRepository.updateAmount(0.0, 0.0, 0.0, reportDetailIndex.getCurrentYearAmount(), 0.0, Long.valueOf(index.getIndexId()));
                     //更新采购指标
-                    reportDetailIndex.setAvailableAmount(index.getAvailableAmount());
+                    reportDetailIndex.setAvailableAmount(index.getCurrentYearAmount());
                     reportDetailIndex.setOccupationAmount(0.0);
                     reportDetailIndex.setPassageAmount(0.0);
                     reportDetailIndex.setCurrentYearAmount(index.getCurrentYearAmount());
                     reportDetailIndex.setPurchaseReportDetail(purchaseReportDetail);
-                    reportDetailIndex.setShowOrder(detailIndexShowOrder++);
+                    reportDetailIndex.setShowOrder(detailIndexShowOrder);
                     reportDetailIndex.setIndex(indexLibrary);
                     reportDetailIndices.add(reportDetailIndex);
                     //审结时将在途金额变为占用
                     if (StateType.DONE.equals(entity.getState())) {
                         indexLibraryRepository.updateAmount(0.0, 0.0, reportDetailIndex.getCurrentYearAmount(), -reportDetailIndex.getCurrentYearAmount(), 0.0, Long.valueOf(index.getIndexId()));
                     }
+
+                    PurchaseReportIndex purchaseReportIndex = purchaseReportIndexMapper.toEntity(index);
+                    purchaseReportIndex.setAvailableAmount(index.getCurrentYearAmount());
+                    purchaseReportIndex.setPurchaseReport(entity);
+                    purchaseReportIndex.setIndex(indexLibrary);
+                    purchaseReportIndex.setShowOrder(detailIndexShowOrder++);
+                    purchaseReportIndex.setAmount(index.getAmount());
+                    purchaseReportIndex.setPassageAmount(0.0);
+                    purchaseReportIndex.setIndex(indexLibrary);
+                    purchaseReportIndex.setOccupationAmount(0.0);
+                    purchaseReportIndex.setQuantity(index.getQuantity());
+                    purchaseReportIndices.add(purchaseReportIndex);
                 }
                 reportDetailIndices = purchaseReportDetailIndexRepository.saveAll(reportDetailIndices);
                 purchaseReportDetail.setIndexes(reportDetailIndices);
                 list.add(purchaseReportDetail);
+                entity.setIndexes(new HashSet<>(purchaseReportIndices));
+                entity.setTotal(purchaseReportIndices.stream().map(index -> new BigDecimal(index.getAmount())).reduce(BigDecimal.ZERO, BigDecimal::add).doubleValue());
+                purchaseReportIndexRepository.saveAll(purchaseReportIndices);
             }
             entity.setTotal(list.stream().map(detail -> new BigDecimal(detail.getTotal())).reduce(BigDecimal.ZERO, BigDecimal::add).doubleValue());
             entity.setDetails(new HashSet<>(list));
-        }
-
-        if (null != createInfoDTO.getIndexes() && !createInfoDTO.getIndexes().isEmpty()) {
-            showOrder = 1;
-            List<PurchaseReportIndex> list = new ArrayList<>();
-            for (PurchaseReportIndexEditInfoDTO editDTO : createInfoDTO.getIndexes()) {
-                PurchaseReportIndex index = purchaseReportIndexMapper.toEntity(editDTO);
-                //填充属性
-                IndexLibrary library = indexLibraryRepository.findById(Long.valueOf(editDTO.getIndexId())).orElseThrow(() -> new NoSuchDataException(editDTO.getIndexId()));
-                //更新指标库
-                indexLibraryRepository.updateAmount(0.0, 0.0, 0.0, index.getAmount(), 0.0, Long.valueOf(editDTO.getIndexId()));
-                index.setAvailableAmount(editDTO.getAvailableAmount());
-                index.setPurchaseReport(entity);
-                index.setIndex(library);
-                index.setShowOrder(showOrder++);
-                index.setAmount(editDTO.getAmount());
-                index.setPassageAmount(0.0);
-                if (StateType.DONE.equals(entity.getState())) {
-                    //审结时将在途变为占用
-                    indexLibraryRepository.updateAmount(0.0, 0.0, index.getAmount(), -index.getAmount(), 0.0, Long.valueOf(editDTO.getIndexId()));
-                }
-                index.setIndex(library);
-                index.setOccupationAmount(0.0);
-                index.setQuantity(editDTO.getQuantity());
-                list.add(index);
-            }
-            entity.setIndexes(new HashSet<>(list));
-            entity.setTotal(list.stream().map(index -> new BigDecimal(index.getAmount())).reduce(BigDecimal.ZERO, BigDecimal::add).doubleValue());
-            purchaseReportIndexRepository.saveAll(list);
         }
         return entity;
     }

@@ -34,10 +34,10 @@ public interface PurchaseReportService {
      * @param beginAmount        最小采购金额
      * @param endAmount          最大采购金额
      * @param code               编码
-     * @param categoryId        品目名称id
+     * @param detailId        品目名称id
      * @return 分页的采购申请详细信息
      */
-    PageDataDTO<PurchaseReportDTO> findOnePage(int page, int size, String sort, StateType stateType, String declarerName, String declarerId, String title, String unitId, Date beginDate, Date endDate, Double beginAmount, Double endAmount, String code, String categoryId);
+    PageDataDTO<PurchaseReportDTO> findOnePage(int page, int size, String sort, StateType stateType, String declarerName, String declarerId, String title, String unitId, Date beginDate, Date endDate, Double beginAmount, Double endAmount, String code, String detailId);
 
     /**
      * 查询全部采购申请信息

@@ -66,6 +66,12 @@ public class PaymentReportAbroadExpense extends AbstractBaseEntity {
     private Integer duration;
 
     /**
+     * 货币
+     */
+    @Column(name = "currency", length = 20,nullable = false)
+    private String currency;
+
+    /**
      * 申请金额合计
      */
     @Column(name = "total")
